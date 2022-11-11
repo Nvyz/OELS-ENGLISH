@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oels_employees,access.oels.employees,model_oels_employees,,1,1,1,1
+access_oels_students,access.oels.students,model_oels_students,,1,1,1,1
+access_oels_groups,access.oels.groups,model_oels_groups,,1,1,1,1
+access_oels_reminders,access.oels.reminders,model_oels_reminders,,1,1,1,1
+access_oels_exams,access.oels.exams,model_oels_exams,,1,1,1,1

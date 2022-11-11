@@ -1,0 +1,159 @@
+<odoo>
+     <record id="students_form" model="ir.ui.view">
+        <field name="name">students.form</field>
+        <field name="model">oels.students</field>
+        <field name="arch" type="xml">
+          <form>
+              <sheet>
+                  <div>
+                      <field name="image" widget="image" class="oe_avatar"/>
+                  </div>
+                  <group>
+                      <group>
+                          <field name="name"/>
+                          <field name="email"/>
+                          <field name="phone"/>
+                          <field name="age"/>
+                          <field name="gender"/>
+                      </group>
+                      <group>
+                          <field name="adress"/>
+                          <field name="teacher"/>
+                          <field name="groupid"/>
+                          <field name="in_person"/>
+                          <field name="registration_date"/>
+                      </group>
+                  </group>
+                  <notebook>
+                      <page string="Grades" name="grades_data">
+                          <field name="grades_id"/>
+                      </page>
+                      <page string="Reminders" name="reminders_data">
+                          <field name="reminders_id"/>
+                      </page>
+                  </notebook>
+              </sheet>
+              <div class="oe_chatter">
+                  <field name="message_follower_ids"/>
+                  <field name="message_ids"/>
+              </div>
+          </form>
+        </field>
+    </record>
+
+      <record id="view_tree_students" model="ir.ui.view">
+      <field name="name">Students</field>
+      <field name="model">oels.students</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="email"/>
+            <field name="phone"/>
+            <field name="age"/>
+            <field name="gender"/>
+            <field name="adress"/>
+            <field name="teacher"/>
+            <field name="groupid"/>
+            <field name="in_person"/>
+            <field name="registration_date"/>
+        </tree>
+     </field>
+   </record>
+
+    <record id="view_students_kanban" model="ir.ui.view">
+        <field name="name">students.kanban</field>
+        <field name="model">oels.students</field>
+        <field name="arch" type="xml">
+            <kanban>
+            <field name="name"/>
+            <field name="age"/>
+            <field name="gender"/>
+            <field name="in_person"/>
+            <field name="email"/>
+            <field name="phone"/>
+            <field name="adress"/>
+            <field name="teacher"/>
+            <field name="groupid"/>
+            <field name="registration_date"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <ul>
+                                <li>
+                                     Name: <field name="name"/>
+                                </li>
+                                 <li>
+                                     Email: <field name="email"/>
+                                </li>
+                                   <li>
+                                     Phone: <field name="phone"/>
+                                </li>
+                                   <li>
+                                     Age: <field name="age"/>
+                                </li>
+                                   <li>
+                                     Gender: <field name="gender"/>
+                                </li>
+                                <li>
+                                     Assistance: <field name="in_person"/>
+                                </li>
+                                <li>
+                                     Adress: <field name="adress"/>
+                                </li>
+                                   <li>
+                                     Registration date: <field name="registration_date"/>
+                                </li>
+                                <li>
+                                     Teacher: <field name="teacher"/>
+                                </li>
+                                <li>
+                                     Group: <field name="groupid"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+
+    </record>
+
+    <record id="students_search" model="ir.ui.view">
+        <field name="name">students.search</field>
+        <field name="model">oels.students</field>
+        <field name="arch" type="xml">
+                <search string="Students">
+                    <field name="name"/>
+                    <separator/>
+                    <filter string="Male" name="male" domain="[('gender','=','male')]"/>
+                    <filter string="Female" name="female" domain="[('gender','=','female')]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Group" name="group" context="{'group_by':'groupid'}"/>
+                        <filter string="Teacher" name="teacher" context="{'group_by':'teacher'}"/>
+                    </group>
+                </search>
+        </field>
+    </record>
+
+    <record id="students_action" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">oels.students</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">
+                   Create your first student!
+               </p>
+            </field>
+    </record>
+     <menuitem id="menu_students_root"
+              name="Students"
+              parent="oels_root"
+              sequence="30"/>
+    <menuitem id="menu_students"
+              name="Students"
+              parent="menu_students_root"
+              action="students_action"
+              sequence="10"/>
+</odoo>

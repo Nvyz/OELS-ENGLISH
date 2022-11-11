@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--  School Information -->
+        <record id="demo_employee_1" model="oels.employees">
+            <field name="name">Juan Martinez Pereira</field>
+            <field name="age" eval="(DateTime.today() - relativedelta(years=30)).strftime('%Y-05-12 %H:%M')"/>
+            <field name="gender">male</field>
+            <field name="adress">Rosalía de Castro 45 5º</field>
+            <field name="email">juanmp@gmail.com</field>
+            <field name="phone">698150996</field>
+            <field name="start_date" eval="(DateTime.today() - relativedelta(years=1)).strftime('%Y-04-11 %H:%M')"/>
+            <field name="image" file="/opt/odoo14/odoo-custom-addons/a19hugopr/oels_english/images/teacher1.jpeg" type="base64"></field>
+        </record>
+        <record id="demo_group_1" model="oels.groups">
+            <field name="classname">1A1</field>
+            <field name="type">A1</field>
+            <field name="schedule_start">09.50</field>
+            <field name="schedule_end">14.50</field>
+            <field name="teacher" ref="demo_employee_1"/>
+        </record>
+        <record id="demo_student_1" model="oels.students">
+             <field name="name">Roberto Rodríguez Costoya</field>
+             <field name="email">robertc@gmail.com</field>
+             <field name="age" eval="(DateTime.today() - relativedelta(years=18)).strftime('%Y-02-11 %H:%M')"/>
+             <field name="registration_date" eval="(DateTime.today() - relativedelta(years=1)).strftime('%Y-10-04 %H:%M')"/>
+             <field name="phone">654542445</field>
+             <field name="adress">Rúa Blanco Amor 30 3º</field>
+             <field name="teacher" ref="demo_employee_1"/>
+            <field name="registration_date" eval="(DateTime.today() - relativedelta(years=0)).strftime('%Y-01-02 %H:%M')"/>
+             <field name="groupid" ref="demo_group_1"/>
+        </record>
+            <record id="demo_employee_2" model="oels.employees">
+            <field name="name">Pedro García Fuentes</field>
+            <field name="age" eval="(DateTime.today() - relativedelta(years=28)).strftime('%Y-07-10 %H:%M')"/>
+            <field name="gender">male</field>
+            <field name="adress">Rúa Doutor Teixeiro 21</field>
+            <field name="email">pedrogf@gmail.com</field>
+            <field name="phone">675849554</field>
+            <field name="start_date" eval="(DateTime.today() - relativedelta(years=3)).strftime('%Y-02-06 %H:%M')"/>
+            <field name="image" file="/opt/odoo14/odoo-custom-addons/a19hugopr/oels_english/images/teacher2.jpeg" type="base64"></field>
+        </record>
+         <record id="demo_group_2" model="oels.groups">
+            <field name="classname">1B2</field>
+            <field name="type">B2</field>
+            <field name="schedule_start">10.50</field>
+            <field name="schedule_end">15.50</field>
+            <field name="teacher" ref="demo_employee_2"/>
+        </record>
+         <record id="demo_student_2" model="oels.students">
+             <field name="name">Juan Gutierrez Montero</field>
+             <field name="email">juangm@gmail.com</field>
+             <field name="age" eval="(DateTime.today() - relativedelta(years=29)).strftime('%Y-03-11 %H:%M')"/>
+             <field name="phone">672324325</field>
+             <field name="adress">Rúa Nova 17 4º</field>
+             <field name="teacher" ref="demo_employee_2"/>
+             <field name="registration_date" eval="(DateTime.today() - relativedelta(years=0)).strftime('%Y-08-08 %H:%M')"/>
+             <field name="groupid" ref="demo_group_2"/>
+        </record>
+        <record id="demo_employee_3" model="oels.employees">
+            <field name="name">Alfonso Sanchez Arufe</field>
+            <field name="age" eval="(DateTime.today() - relativedelta(years=24)).strftime('%Y-02-10 %H:%M')"/>
+            <field name="gender">male</field>
+            <field name="adress">Rúa da Estrada 56º</field>
+            <field name="email">alfonsoda@gmail.com</field>
+            <field name="phone">687754562</field>
+            <field name="start_date" eval="(DateTime.today() - relativedelta(years=6)).strftime('%Y-02-26 %H:%M')"/>
+            <field name="image" file="/opt/odoo14/odoo-custom-addons/a19hugopr/oels_english/images/teacher3.jpeg" type="base64"></field>
+        </record>
+         <record id="demo_group_3" model="oels.groups">
+            <field name="classname">1C1</field>
+            <field name="type">C1</field>
+            <field name="schedule_start">8.30</field>
+            <field name="schedule_end">13.30</field>
+            <field name="teacher" ref="demo_employee_3"/>
+        </record>
+         <record id="demo_student_3" model="oels.students">
+             <field name="name">Manuel Gonzalez Pampín</field>
+             <field name="age" eval="(DateTime.today() - relativedelta(years=24)).strftime('%Y-02-10 %H:%M')"/>
+             <field name="email">manufp@gmail.com</field>
+             <field name="phone">642564223</field>
+             <field name="adress">Rúa Cancelas 20</field>
+             <field name="teacher" ref="demo_employee_3"/>
+             <field name="registration_date" eval="(DateTime.today() - relativedelta(years=0)).strftime('%Y-05-06 %H:%M')"/>
+             <field name="groupid" ref="demo_group_3"/>
+        </record>
+         <record id="demo_student_4" model="oels.students">
+             <field name="name">Alba Fuentes Martinez</field>
+             <field name="email">albafm@gmail.com</field>
+             <field name="age" eval="(DateTime.today() - relativedelta(years=27)).strftime('%Y-04-12 %H:%M')"/>
+             <field name="phone">684583455</field>
+             <field name="adress">Rúa da Estrada 29</field>
+             <field name="teacher" ref="demo_employee_2"/>
+             <field name="gender">female</field>
+             <field name="registration_date" eval="(DateTime.today() - relativedelta(years=0)).strftime('%Y-03-11 %H:%M')"/>
+             <field name="groupid" ref="demo_group_2"/>
+        </record>
+         <record id="demo_student_5" model="oels.students">
+             <field name="name">María Bosco Suarez</field>
+             <field name="age" eval="(DateTime.today() - relativedelta(years=19)).strftime('%Y-03-07 %H:%M')"/>
+             <field name="email">mariabs@gmail.com</field>
+             <field name="phone">694859555</field>
+             <field name="adress">Rúa Nova 15</field>
+             <field name="gender">female</field>
+             <field name="teacher" ref="demo_employee_3"/>
+              <field name="registration_date" eval="(DateTime.today() - relativedelta(years=0)).strftime('%Y-05-10 %H:%M')"/>
+             <field name="groupid" ref="demo_group_3"/>
+        </record>
+    </data>
+</odoo>

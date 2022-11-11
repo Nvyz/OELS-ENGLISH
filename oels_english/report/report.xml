@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="report_teacher_details" model="ir.actions.report">
+        <field name="name">Teacher Details</field>
+        <field name="model">oels.employees</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">oels_english.report_employees_detail</field>
+        <field name="report_file">oels_english.report_employees_detail</field>
+        <field name="binding_model_id" ref="model_oels_employees"/>
+        <field name="binding_type">report</field>
+</record>
+<record id="report_teacher_details_students" model="ir.actions.report">
+        <field name="name">Teacher and students details</field>
+        <field name="model">oels.employees</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">oels_english.report_employees_detail_two</field>
+        <field name="report_file">oels_english.report_employees_detail_two</field>
+        <field name="binding_model_id" ref="model_oels_employees"/>
+        <field name="binding_type">report</field>
+</record>
+<record id="report_teacher_details_groups" model="ir.actions.report">
+        <field name="name">Teacher and groups details</field>
+        <field name="model">oels.employees</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">oels_english.report_employees_detail_three</field>
+        <field name="report_file">oels_english.report_employees_detail_three</field>
+        <field name="binding_model_id" ref="model_oels_employees"/>
+        <field name="binding_type">report</field>
+</record>
+</odoo>

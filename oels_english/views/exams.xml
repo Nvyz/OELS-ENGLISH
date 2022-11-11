@@ -1,0 +1,61 @@
+<odoo>
+     <record id="oels_exams_form" model="ir.ui.view">
+        <field name="name">exams.form</field>
+        <field name="model">oels.exams</field>
+        <field name="arch" type="xml">
+          <form>
+                <sheet>
+                  <group>
+                      <group>
+                          <field name="student"/>
+                          <field name="type"/>
+                          <field name="date"/>
+                          <field name="grade"/>
+                          <field name="annotations"/>
+                      </group>
+                  </group>
+              </sheet>
+              <div class="oe_chatter">
+                  <field name="message_follower_ids"/>
+                  <field name="message_ids"/>
+              </div>
+          </form>
+        </field>
+    </record>
+
+   <record id="view_tree_exams" model="ir.ui.view">
+      <field name="name">Grades</field>
+      <field name="model">oels.exams</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="type"/>
+            <field name="date"/>
+            <field name="grade"/>
+            <field name="student"/>
+        </tree>
+     </field>
+   </record>
+
+
+    <record id="oels_exams_action" model="ir.actions.act_window">
+            <field name="name">Grades</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">oels.exams</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">
+                   Add a new grade now!
+               </p>
+            </field>
+    </record>
+
+    <menuitem id="oels_exams_root"
+              name="Grades"
+              parent="oels_root"
+              sequence="40"/>
+    <menuitem id="menu_oels_exams"
+              name="Grades"
+              parent="oels_exams_root"
+              action="oels_exams_action"
+              sequence="10"/>
+</odoo>

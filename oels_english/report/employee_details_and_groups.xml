@@ -1,0 +1,140 @@
+<odoo>
+    <template id="report_employees_detail_three">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <table class="table table-condensed" style="border: 3px solid black !important;">
+                                    <tr>
+                                        <td width="40%">
+                                            <p style="text-align:center;padding-top:10px;">
+                                                <img t-if="not o.image"
+                                                     t-att-src="'/web/static/src/img/placeholder.png'" height="140"
+                                                     border="1" width="120"/>
+                                                <img t-if="o.image"
+                                                     t-att-src="'data:image/png;base64,%s' % to_text(o.image)"
+                                                     height="140" border="1" width="120"/>
+                                            </p>
+                                        </td>
+                                        <td width="60%">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Name:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.name"/>
+                                                    </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Age:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.age"/>
+                                                    </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Phone:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.phone"/>
+                                                    </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Email:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.email"/>
+                                                    </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Adress:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.adress"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br/>
+                          <t t-if="o.students_id">
+                            <span>Group Details</span>
+                            <table class="table table-sm o_main_table" name="groups">
+                                <thead>
+                                    <tr>
+                                        <th name="th_reference" class="text-left">
+                                            <span>Name</span>
+                                        </th>
+                                        <th name="th_reference" class="text-left">
+                                            <span>Type</span>
+                                        </th>
+                                        <th name="th_reference" class="text-left">
+                                            <span>Schedule start</span>
+                                        </th>
+                                        <th name="th_reference" class="text-left">
+                                            <span>Schedule end</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-set="appointment_count" t-value="0"/>
+                                <t t-foreach="o.groups_id" t-as="line">
+                                    <t t-set="appointment_count" t-value="appointment_count + 1"/>
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.classname"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.type"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.schedule_start"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.schedule_end"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+   </template>
+</odoo>

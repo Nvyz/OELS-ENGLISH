@@ -1,0 +1,81 @@
+<odoo>
+    <record id="employees_form" model="ir.ui.view">
+        <field name="name">employees.form</field>
+        <field name="model">oels.employees</field>
+        <field name="arch" type="xml">
+          <form style="background-color:#e8eae8;">
+              <sheet>
+                  <div>
+                      <field name="image" widget="image" class="oe_avatar"/>
+                  </div>
+                  <group>
+                      <group>
+                          <field name="name"/>
+                          <field name="age"/>
+                          <field name="gender"/>
+                      </group>
+                      <group>
+                          <field name="adress"/>
+                          <field name="email" widget="email"/>
+                          <field name="phone"/>
+                          <field name="start_date"/>
+                      </group>
+                  </group>
+                  <notebook>
+                      <page string="Groups" name="groups_data">
+                          <field name="groups_id"/>
+                      </page>
+                       <page string="Students" name="students_data">
+                          <field name="students_id"/>
+                      </page>
+                  </notebook>
+              </sheet>
+              <div class="oe_chatter">
+                  <field name="message_follower_ids"/>
+                  <field name="message_ids"/>
+              </div>
+          </form>
+        </field>
+    </record>
+
+    <record id="view_tree_employees" model="ir.ui.view">
+      <field name="name">Teachers</field>
+      <field name="model">oels.employees</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="age"/>
+          <field name="gender"/>
+          <field name="email"/>
+          <field name="phone"/>
+          <field name="adress"/>
+          <field name="start_date"/>
+        </tree>
+     </field>
+   </record>
+
+    <record id="employees_action" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">oels.employees</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+               <p class="o_view_nocontent_smiling_face">
+                   Register your first teacher!
+               </p>
+            </field>
+    </record>
+
+    <menuitem id="oels_root"
+              name="OELS"
+              sequence="10"/>
+    <menuitem id="oels_employees_root"
+              name="Teachers"
+              parent="oels_root"
+              sequence="10"/>
+    <menuitem id="employees"
+              name="Teachers"
+              parent="oels_employees_root"
+              action="employees_action"
+              sequence="10"/>
+</odoo>
