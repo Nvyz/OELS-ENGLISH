@@ -74,13 +74,6 @@ Recordatorios, puedes almacenar un recordatorio sobre un trámite pendiente de a
 
 Soy un estudiante del IES San Clemente que desde pequeño le llamó mucho la atención todo lo relacionado con las nuevas técnologias. Con lo que aprendí en estos ultimos meses, diría que mi punto fuente reside sobreotodo en el desarollo android pero también me gusta bastante todo lo relacionado con la gestión y manejo de datos, motivo por el que escogí utilizar odoo como proyecto de fin de ciclo. Además, lo vi una buena oportunidad de trabajar con un lenguaje de programación diferente a Java y así iniciarme un poco en el desarollo Python.
 
-Como puntos positivos sobre mi personalidad como programador creo que:
-
-- Creativo
-- Me gusta aprender sobre nuevas tecnologías
-- Trabajo bien bajo presión
-- Resolutivo
-
 ## Licencia
 
 Copyright (C)  2021  Hugo Pires Rodríguez.
